@@ -18,14 +18,13 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+            overflow-x: hidden;
         }
 
-        /* Sovereign Spine - Responsive Grid */
         .spine-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.35; 
+            opacity: 0.3; 
             background: 
                 linear-gradient(90deg, transparent 49%, var(--accent-cyan) 50%, transparent 51%),
                 linear-gradient(0deg, transparent 49%, var(--accent-cyan) 50%, transparent 51%);
@@ -35,86 +34,93 @@
 
         .container { 
             text-align: center; 
-            width: 90%; /* Take up most of the screen on mobile */
-            max-width: 800px; 
-            padding: 4rem 1rem; /* Added vertical padding for mobile scrolling */
+            width: 90%; 
+            max-width: 850px; 
+            padding: 2rem 1rem; 
             z-index: 1; 
-            box-sizing: border-box;
         }
 
-        .logo-area {
-            width: 100%; max-width: 280px; margin: 0 auto 2.5rem;
-            filter: invert(1) hue-rotate(180deg) brightness(1.1);
+        .limina-logo-area {
+            width: 100%; max-width: 240px; margin: 0 auto 0.5rem;
+            filter: invert(1) hue-rotate(180deg) brightness(1.2);
+        }
+
+        .developers-tag {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem; 
+            font-weight: 600;
+        }
+
+        .mira-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .mira-mini-logo {
+            height: 70px;
+            width: auto;
+            /* FIX: This specific filter pulls the dark "mira" text out of the black background */
+            filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 10px rgba(0, 242, 255, 0.2));
+        }
+
+        .mira-product {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-size: 0.8rem; /* Slightly smaller to let H1 breathe */
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9; /* Softened slightly for better hierarchy */
         }
 
         h1 {
             font-size: 3.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.5rem;
             line-height: 1.1;
-            background: linear-gradient(to bottom, #fff 50%, #64748b);
+            background: linear-gradient(to bottom, #fff 60%, #64748b);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        h2 { font-size: 0.9rem; font-weight: 600; color: var(--accent-cyan); letter-spacing: 0.3em; margin-bottom: 1.5rem; text-transform: uppercase; }
+        p.body-text { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1.5rem; line-height: 1.6; max-width: 650px; margin-left: auto; margin-right: auto; }
 
-        p.body-text { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 3.5rem; line-height: 1.6; }
-
-        /* Form Styling - Responsive */
         .email-form-container { width: 100%; max-width: 480px; margin: 0 auto; min-height: 80px; }
         
         .email-form {
             display: flex; gap: 10px; background: rgba(255,255,255,0.05);
             padding: 8px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15);
-            transition: all 0.3s ease;
         }
 
-        input { background: transparent; border: none; color: white; padding: 12px; flex-grow: 1; outline: none; font-size: 1rem; width: 100%; }
+        input { background: transparent; border: none; color: white; padding: 12px; flex-grow: 1; outline: none; font-size: 1rem; }
 
         button {
             background: var(--accent-cyan); color: #000; border: none;
-            padding: 12px 24px; border-radius: 10px; font-weight: 700; cursor: pointer;
-            white-space: nowrap;
+            padding: 12px 28px; border-radius: 10px; font-weight: 700; cursor: pointer;
         }
 
         #success-message {
             display: none; color: var(--accent-cyan); font-weight: 600;
             padding: 20px; border-radius: 12px; background: rgba(0, 242, 255, 0.05);
             border: 1px solid rgba(0, 242, 255, 0.2);
-            font-size: 0.9rem;
         }
 
-        .pedigree { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--text-dim); text-transform: uppercase; margin-top: 3rem; opacity: 0.7; line-height: 1.4; }
+        .pedigree { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-top: 2rem; opacity: 0.6; }
 
-        footer { 
-            position: relative; /* Changed from absolute to allow scrolling on mobile */
-            padding: 2rem 0;
-            width: 100%; text-align: center; font-size: 0.75rem; color: var(--text-dim); 
-        }
+        footer { padding: 2rem 0; text-align: center; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.05em; }
 
-        /* --- MOBILE OVERRIDES --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; } /* Shrink main title */
-            p.body-text { font-size: 1rem; margin-bottom: 2.5rem; }
-            .logo-area { max-width: 220px; }
-            
-            .email-form {
-                flex-direction: column; /* Stack input and button on small phones */
-                background: transparent;
-                border: none;
-                padding: 0;
-            }
-            
-            input {
-                background: rgba(255,255,255,0.05);
-                border: 1px solid rgba(255,255,255,0.15);
-                border-radius: 12px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-            }
-            
-            button {
-                width: 100%;
-                padding: 16px;
-            }
+            h1 { font-size: 2rem; }
+            .limina-logo-area { max-width: 180px; }
+            .mira-mini-logo { height: 55px; }
+            .email-form { flex-direction: column; background: transparent; border: none; padding: 0; }
+            input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; margin-bottom: 10px; }
+            button { width: 100%; padding: 16px; }
         }
 
         @keyframes drift { from { transform: translate(0,0); } to { transform: translate(-20px, -20px); } }
@@ -124,18 +130,27 @@
 <body>
     <div class="spine-bg"></div>
     <div class="container">
-        <div class="logo-area">
-            <img src="LIMINA Logo and Wordart 5 (Tran).png" style="width: 100%;" alt="Limina Logo">
-        </div>
         
-        <h2>Mira: The Zero-Bypass Protocol</h2>
+        <div class="limina-logo-area">
+            <img src="LIMINA Logo and Wordart 5 (Tran).png" style="width: 100%;" alt="Limina">
+        </div>
+        <p class="developers-tag">Developers of Mira</p>
+        
+        <!-- <div class="mira-header">
+            <img src="Mira Logo and Wordmark 3 (trans).png" class="mira-mini-logo" alt="Mira Logo">
+        </div>
+        -->
+        <div class="mira-product">
+            Mira: The Zero-Bypass Protocol Safeguarding Enterprise AI Interactions
+        </div>
+
         <h1>Securing the Immune System of the AI Economy</h1>
         <p class="body-text">Unblocking stagnant cloud spend in regulated industries through sub-10ms interdiction and cryptographically signed audit trails.</p>
 
         <div class="email-form-container">
             <form id="limina-form" action="https://formspree.io/f/mvzdadoa" method="POST" class="email-form">
                 <input type="email" name="email" placeholder="Professional email address..." required>
-                <button type="submit" id="submit-btn">Join the Strike Team</button>
+                <button type="submit" id="submit-btn">Learn more</button>
             </form>
             <div id="success-message">Thanks for your interest. We'll get back to you soon.</div>
         </div>
@@ -167,7 +182,7 @@
             } else {
                 alert('Connection error. Please try again.');
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'Join the Strike Team';
+                submitBtn.innerText = 'Learn more';
             }
         };
     </script>
